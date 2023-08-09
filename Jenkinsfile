@@ -3,15 +3,15 @@ pipeline{
 	stages {
 	  	stage('build'){
       			steps{
-				git 'https://github.com/PrachiJukaria/django-todo-cicd.git'
+				checkout scmGit(branches: [[name: '*/develop']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/PrachiJukaria/django-todo-cicd']])
 			}
     		}	
     		stage('deploy')
     		{
       			steps{
 				script{
-        				sh 'docker build -t todo-cicd .'
-        				sh 'docker run -d -p 8000:8000 todocicd'
+        				sh 'docker build -t todo-cicd:2 .'
+        				sh 'docker run -d -p 8000:8000 todo-cicd:2'
       				}
 			}
     		}

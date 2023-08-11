@@ -1,11 +1,11 @@
 pipeline{
 	agent any
 	stages {
-	  	stage('build'){
-      			steps{
-				checkout scmGit(branches: [[name: '*/develop']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/PrachiJukaria/django-todo-cicd']])
-			}
-    		}	
+	  // 	stage('build'){
+   //    			steps{
+			// 	checkout scmGit(branches: [[name: '*/develop']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/PrachiJukaria/django-todo-cicd']])
+			// }
+   //  		}	
     		stage('deploy')
     		{
       			steps{
